@@ -55,10 +55,6 @@ main (int argc, char *argv[])
     int y = 0;
     printf("Podaj skladniki x i y\n");
     scanf("%d %d",&x,&y);
-    /*printf("Podaj pierwszy skladnik\n");
-    scanf("%c",&x);
-    printf("Podaj drugi skladnik\n");
-    scanf("%c",&y);*/
 	testowy_1 (host, x, y);
 exit (0);
 }
