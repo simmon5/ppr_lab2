@@ -10,7 +10,9 @@ xdr_wejscie (XDR *xdrs, wejscie *objp)
 {
 	register int32_t *buf;
 
-	 if (!xdr_pointer (xdrs, (char **)&objp->dane, sizeof (char), (xdrproc_t) xdr_char))
+	int i;
+	 if (!xdr_vector (xdrs, (char *)objp->dane, 256,
+		sizeof (char), (xdrproc_t) xdr_char))
 		 return FALSE;
 	return TRUE;
 }
@@ -20,7 +22,9 @@ xdr_wyjscie (XDR *xdrs, wyjscie *objp)
 {
 	register int32_t *buf;
 
-	 if (!xdr_pointer (xdrs, (char **)&objp->wynik, sizeof (char), (xdrproc_t) xdr_char))
+	int i;
+	 if (!xdr_vector (xdrs, (char *)objp->wynik, 256,
+		sizeof (char), (xdrproc_t) xdr_char))
 		 return FALSE;
 	return TRUE;
 }

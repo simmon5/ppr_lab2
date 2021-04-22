@@ -22,9 +22,13 @@ testowy_1(char *host, char* buffer)
 		exit (1);
 	}
 #endif	/* DEBUG */
-
-	obliczenia_1_arg.dane = buffer;
-    
+    int x=0;
+    int n = sizeof(buffer);
+    while(x<=n)
+    {
+        obliczenia_1_arg.dane[x] = buffer[x];
+        x++;
+    }
 
 	result_1 = obliczenia_1(&obliczenia_1_arg, clnt);
 	if (result_1 == (wyjscie *) NULL) {
@@ -50,9 +54,12 @@ main (int argc, char *argv[])
 		exit (1);
 	}
 	host = argv[1];
-    char* text  = (char *)malloc(256 * sizeof(char));
+    
+    char *text=NULL;
     printf("Podaj dane\n");
-    scanf("%s", text);
+    size_t bufsize=0;
+    int n=getline(&text,&bufsize,stdin);
+    //scanf("%s", text);
     testowy_1 (host, text);
     
 exit (0);

@@ -13,9 +13,18 @@ obliczenia_1_svc(wejscie *argp, struct svc_req *rqstp)
 	/*
 	 * insert server code here
 	 */
-    printf("Otrzymane dane \n");
-	result.wynik = argp->dane;
-    printf("%s \n",result.wynik);
+    printf("Otrzymane dane: %s\n",argp->dane);
+    int i=0;
+    int x =0;
+    while(argp->dane[x] != '\0')
+    {
+        
+        sprintf((char*)(result.wynik+i),"%02X", argp->dane[x]);
+        x++;
+        i+=2;
+    }
+    printf("w hex: %s\n",result.wynik);
+	
     
     
 	return &result;

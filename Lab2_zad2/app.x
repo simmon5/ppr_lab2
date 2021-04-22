@@ -11,10 +11,10 @@
 	Dlatego nalezy definiowac odpowiednie struktury
 *************************************/
 struct wejscie {
-	char* dane;
+	char dane[256];
 };
 struct wyjscie {
-	char* wynik;
+	char wynik[256];
 };
 			/* definicja programu i jego wersji */
 
